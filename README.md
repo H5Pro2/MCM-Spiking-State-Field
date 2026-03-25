@@ -47,75 +47,6 @@ Die MCM liefert dazu einen **eigenen inneren Zustandsraum**, in dem Reize nicht 
 
 ## Architektur auf einen Blick
 
-# --------------------------------------------------
-
-# Beobachtung
-
-# --------------------------------------------------
-
-Der Mermaid-Fehler kommt sehr wahrscheinlich von den **unquotierten Labels** mit Sonderzeichen/Inhalten wie:
-
-* `x(t)`
-* `rho(x,t)`
-* `/`
-
-GitHub-Mermaid ist dort oft empfindlich.
-
-# --------------------------------------------------
-
-# Interpretation
-
-# --------------------------------------------------
-
-Sauberste Loesung:
-
-* **alle Labels in Anfuehrungszeichen**
-* keine nackten mathematischen Ausdruecke im Knotenlabel
-
-# --------------------------------------------------
-
-# Schlussfolgerung
-
-# --------------------------------------------------
-
-Nutze diese Version:
-
-```mermaid
-flowchart LR
-    A["Wahrnehmung"] --> B["Spikende neuronale Populationen"]
-    B --> C["MCM-Einzelzustand x(t)"]
-    B --> D["Felddichte rho(x,t)"]
-    C --> E["Clustering"]
-    D --> E
-    C --> F["Kontextbildung"]
-    D --> F
-    E --> G["Cluster-Gedaechtnis"]
-    G --> H["Replay / Gruendeln / Denken"]
-    F --> H
-    C --> I["Reflexion"]
-    F --> I
-    H --> C
-    H --> D
-    C --> J["Self-State / innere Wahrnehmung"]
-    D --> J
-    I --> J
-    J --> K["Selbstregulierung"]
-    K --> C
-    K --> D
-    C --> L["Datenausgang"]
-    D --> L
-    F --> L
-    J --> L
-```
-
-# --------------------------------------------------
-
-# Alternative noch robuster
-
-# --------------------------------------------------
-
-Falls GitHub weiter zickt, noch reduzierter:
-
 ```mermaid
 flowchart LR
     A["Wahrnehmung"] --> B["Neuronale Populationen"]
@@ -143,6 +74,7 @@ flowchart LR
     F --> L
     J --> L
 ```
+
 ## Mathematischer Kern
 
 ### 1) Kontinuierlicher MCM-Raum
