@@ -6,7 +6,7 @@ from __future__ import annotations
 import math
 from typing import Sequence
 
-from mcm_state import FIELD_MAX, FIELD_MIN
+from src.core.mcm_state import FIELD_MAX, FIELD_MIN
 
 
 # --------------------------------------------------

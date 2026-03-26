@@ -14,8 +14,8 @@ from core.neural_core import (
     decode_neural_state,
     step_neural_core,
 )
-from core.output import build_output_state
-from core.perception import apply_input_gain, encode_perception
+from src.core.output import build_output_state
+from src.core.perception import apply_input_gain, encode_perception
 
 
 # --------------------------------------------------
