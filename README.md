@@ -2,7 +2,7 @@
 
 ## Kurzbeschreibung
 
-Dieses Repository beschreibt einen architektonischen Entwurf fuer ein **spikendes inneres Zustandsmodell**, das die **neuronale Aktivitaetsverarbeitung** aus der Spaun-/Nengo-Richtung mit dem **kontinuierlichen Zustandsraum** der Mental Core Matrix (MCM) verbindet.
+Dieses Repository beschreibt einen architektonischen Entwurf ^für ein **spikendes inneres Zustandsmodell**, das die **neuronale Aktivitaetsverarbeitung** aus der Spaun-/Nengo-Richtung mit dem **kontinuierlichen Zustandsraum** der Mental Core Matrix (MCM) verbindet.
 
 Ziel ist **kein Nachbau des gesamten Spaun-Systems**, sondern eine fokussierte Architektur mit:
 
@@ -10,7 +10,7 @@ Ziel ist **kein Nachbau des gesamten Spaun-Systems**, sondern eine fokussierte A
 - neuronaler Verarbeitung
 - kontinuierlichem MCM-Feldzustand
 - Clustering
-- internem Replay / Gruendeln / Denken
+- internem Replay / Grübeln / Denken
 - eigener Kontextbildung
 - Kontextlernen
 - Reflexion
@@ -41,7 +41,7 @@ Die MCM liefert dazu einen **eigenen inneren Zustandsraum**, in dem Reize nicht 
 - Zentrum `0` als Attraktor
 - Feldzustand `rho(x,t)`
 - Einzelzustand `x(t)`
-- Rueckfuehrung zum Zentrum
+- Rückführung zum Zentrum
 - Kontext- und Selbstregulationslogik
 - symbolische Zonen nur als Leseschicht `Phi`, nicht als Mauern im Feld
 
@@ -56,7 +56,7 @@ flowchart LR
     D --> E
     C --> F["Kontext"]
     D --> F
-    E --> G["Cluster-Gedaechtnis"]
+    E --> G["Cluster-Gedächtnis"]
     G --> H["Replay und Denken"]
     F --> H
     C --> I["Reflexion"]
@@ -104,10 +104,10 @@ Wichtig: `Phi` beschreibt **Interpretationszonen**, aber keine harte Strukturgre
 
 Am Ende soll ein System entstehen, das:
 
-1. Reize in spikende Aktivitaet uebersetzt
-2. diese Aktivitaet in einen inneren Feldzustand ueberfuehrt
+1. Reize in spikende Aktivitaet übersetzt
+2. diese Aktivitaet in einen inneren Feldzustand überfuehrt
 3. wiederkehrende Feldmuster clustert
-4. interne Replay-Schleifen fuer Denken / Gruendeln erzeugt
+4. interne Replay-Schleifen fuer Denken / Grübeln erzeugt
 5. eigenen Kontext bildet und lernt
 6. den eigenen Zustand beobachtet
 7. sich selbst reguliert
@@ -130,7 +130,7 @@ mcm-spaun-state-field/
 - Wahrnehmungsinput
 - spikende Populationen
 - kontinuierlicher Zustand `x(t)`
-- Rueckfuehrung zum Zentrum
+- Rückführung zum Zentrum
 - Datenausgang fuer Aktivitaet und Feldlage
 
 ### Phase 2 - Feldbeobachtung
@@ -149,16 +149,16 @@ mcm-spaun-state-field/
 - innere Wahrnehmung ableiten
 
 ### Phase 5 - Selbstregulierung
-- Rueckfuehrung adaptiv modulieren
-- Replay daempfen/verstaerken
+- Rückführung adaptiv modulieren
+- Replay dämpfen/verstärken
 - Instabilitaet aktiv korrigieren
 
 ## Was dieses Projekt ausdruecklich nicht ist
 
 - kein Anspruch auf empirisch validiertes Gehirnmodell
-- kein Beweis fuer Bewusstsein
-- kein vollstaendiger Spaun-Nachbau
-- keine Behauptung, dass MCM wissenschaftlich bestaetigt sei
+- kein Beweis für Bewusstsein
+- kein vollständiger Spaun-Nachbau
+- keine Behauptung, dass MCM wissenschaftlich bestätigt sei
 
 Es ist ein **technischer Entwurf fuer eine hypothetische KI-Architektur**.
 
