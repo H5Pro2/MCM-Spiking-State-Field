@@ -3,25 +3,25 @@
 # --------------------------------------------------
 from __future__ import annotations
 
-from field_density import (
+from core.field_density import (
     build_field_axis,
     compute_density_mean,
     compute_density_variance,
     find_density_peaks,
     reconstruct_density,
 )
-from mcm_state import (
+from core.mcm_state import (
     compute_state_velocity,
     initialize_mcm_state,
     update_mcm_state,
 )
-from neural_core import (
+from core.neural_core import (
     build_neural_core,
     decode_neural_state,
     step_neural_core,
 )
-from output import build_output_state
-from perception import apply_input_gain, encode_perception
+from core.output import build_output_state
+from core.perception import apply_input_gain, encode_perception
 
 
 # --------------------------------------------------
