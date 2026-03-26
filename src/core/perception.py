@@ -1,3 +1,6 @@
+# --------------------------------------------------
+# src/core/perception.py
+# --------------------------------------------------
 from __future__ import annotations
 
 import math
@@ -14,7 +17,6 @@ CHANNEL_NAMES = (
     "uncertainty",
     "social_salience",
 )
-
 
 # --------------------------------------------------
 # Normalisierung

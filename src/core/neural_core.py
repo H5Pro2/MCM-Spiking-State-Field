@@ -1,3 +1,6 @@
+# --------------------------------------------------
+# src/core/neural_core.py
+# --------------------------------------------------
 from __future__ import annotations
 
 import math
