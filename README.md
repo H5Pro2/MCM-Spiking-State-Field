@@ -2,7 +2,7 @@
 
 ## Kurzbeschreibung
 
-Dieses Repository beschreibt einen architektonischen Entwurf ^für ein **spikendes inneres Zustandsmodell**, das die **neuronale Aktivitaetsverarbeitung** aus der Spaun-/Nengo-Richtung mit dem **kontinuierlichen Zustandsraum** der Mental Core Matrix (MCM) verbindet.
+Dieses Repository beschreibt einen architektonischen Entwurf für ein **spikendes inneres Zustandsmodell**, das die **neuronale Aktivitätsverarbeitung** aus der Spaun-/Nengo-Richtung mit dem **kontinuierlichen Zustandsraum** der Mental Core Matrix (MCM) verbindet.
 
 Ziel ist **kein Nachbau des gesamten Spaun-Systems**, sondern eine fokussierte Architektur mit:
 
@@ -20,17 +20,17 @@ Ziel ist **kein Nachbau des gesamten Spaun-Systems**, sondern eine fokussierte A
 
 ## Kernidee
 
-Spaun zeigt, dass sich Wahrnehmung, Arbeitsgedaechtnis und Auswahl in **spikenden neuronalen Populationen** implementieren lassen.  
+Spaun zeigt, dass sich Wahrnehmung, Arbeitsgedächtnis und Auswahl in **spikenden neuronalen Populationen** implementieren lassen.  
 Die MCM liefert dazu einen **eigenen inneren Zustandsraum**, in dem Reize nicht nur verarbeitet, sondern als **laufende innere Lage** gehalten, verdichtet, wiederaufgenommen und reguliert werden.
 
 **Zielkette**
 
-`Wahrnehmung -> neuronale Aktivitaet -> MCM-Feldzustand -> neuronales Feedback`
+`Wahrnehmung -> neuronale Aktivität -> MCM-Feldzustand -> neuronales Feedback`
 
 ## Warum diese Kombination?
 
 ### Spaun-/Nengo-Seite
-- spikende neuronale Aktivitaetsmuster
+- spikende neuronale Aktivitätsmuster
 - verteilte Repräsentationen
 - rekurrente Dynamik
 - Working Memory / State-Holding
@@ -43,7 +43,7 @@ Die MCM liefert dazu einen **eigenen inneren Zustandsraum**, in dem Reize nicht 
 - Einzelzustand `x(t)`
 - Rückführung zum Zentrum
 - Kontext- und Selbstregulationslogik
-- symbolische Zonen nur als Leseschicht `Phi`, nicht als Mauern im Feld
+- symbolische Zonen nur als Leseschicht `Phi`, nicht als Maürn im Feld
 
 ## Architektur auf einen Blick
 
@@ -86,7 +86,7 @@ flowchart LR
 ### 3) Feldform
 `rho(x,t) >= 0` mit `integral_{-3}^{+3} rho(x,t) dx = 1`
 
-### 4) Rueckfuehrung
+### 4) Rückführung
 `v(x) = -k x`
 
 ### 5) Psychologische Zustandsdynamik
@@ -104,10 +104,10 @@ Wichtig: `Phi` beschreibt **Interpretationszonen**, aber keine harte Strukturgre
 
 Am Ende soll ein System entstehen, das:
 
-1. Reize in spikende Aktivitaet übersetzt
-2. diese Aktivitaet in einen inneren Feldzustand überfuehrt
+1. Reize in spikende Aktivität übersetzt
+2. diese Aktivität in einen inneren Feldzustand überführt
 3. wiederkehrende Feldmuster clustert
-4. interne Replay-Schleifen fuer Denken / Grübeln erzeugt
+4. interne Replay-Schleifen für Denken / Gründeln erzeugt
 5. eigenen Kontext bildet und lernt
 6. den eigenen Zustand beobachtet
 7. sich selbst reguliert
@@ -131,14 +131,14 @@ mcm-spaun-state-field/
 - spikende Populationen
 - kontinuierlicher Zustand `x(t)`
 - Rückführung zum Zentrum
-- Datenausgang fuer Aktivitaet und Feldlage
+- Datenausgang für Aktivität und Feldlage
 
 ### Phase 2 - Feldbeobachtung
 - Rekonstruktion von `rho(x,t)`
 - Varianz, Spannung, Feldunruhe
 - Peak-Tracking im Feld
 
-### Phase 3 - Clustering und Gedaechtnis
+### Phase 3 - Clustering und Gedächtnis
 - Musterfenster sammeln
 - Cluster erkennen
 - Replay aus Clustern
@@ -151,25 +151,26 @@ mcm-spaun-state-field/
 ### Phase 5 - Selbstregulierung
 - Rückführung adaptiv modulieren
 - Replay dämpfen/verstärken
-- Instabilitaet aktiv korrigieren
+- Instabilität aktiv korrigieren
 
-## Was dieses Projekt ausdruecklich nicht ist
+## Was dieses Projekt ausdrücklich nicht ist
 
 - kein Anspruch auf empirisch validiertes Gehirnmodell
 - kein Beweis für Bewusstsein
 - kein vollständiger Spaun-Nachbau
 - keine Behauptung, dass MCM wissenschaftlich bestätigt sei
 
-Es ist ein **technischer Entwurf fuer eine hypothetische KI-Architektur**.
+Es ist ein **technischer Entwurf für eine hypothetische KI-Architektur**.
 
 ## Referenzen
 
-### Offizielle / etablierte Quellen
+### Offizielle / etablierte Qüllen
 - Nengo Documentation: https://www.nengo.ai/documentation/
 - Stewart, Choo, Eliasmith (2012), *Spaun: A Perception-Cognition-Action Model Using Spiking Neurons*: https://compneuro.uwaterloo.ca/publications/stewart2012c.html
 - Eliasmith (2013), *The Semantic Pointer Architecture*: https://academic.oup.com/book/6263/chapter/149922017
 
-### MCM-Quellen (Projektbasis)
+### MCM-Qüllen (Projektbasis)
+
 - [Dokument CC - Formale Gesamtstruktur der MCM](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20%E2%80%93%20Mental%20Core%20Matrix/CC-%20Formale%20Gesamtstruktur%20der%20MCM.pdf)
 - [Dokument BB - Mathematische Grundform der reinen MCM](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20%E2%80%93%20Mental%20Core%20Matrix/BB%20-%20Mathematische%20Grundform%20der%20reinen%20MCM.pdf)
 - [Abhandlung MCM_KI_Modell](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20-%20Code%20Beispiele/MCM%20KI%20Modell/Abhandlung%20MCM_KI_Modell.pdf)

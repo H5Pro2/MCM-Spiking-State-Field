@@ -8,12 +8,12 @@ Ziel ist die Umsetzung eines **spikenden inneren Zustandsmodells**, das die folg
 - neuronale Verarbeitung
 - kontinuierlicher MCM-Feldzustand
 - Clustering
-- Gruendeln / Denken
+- Grübeln / Denken
 - eigene Kontextbildung
 - Kontextlernen
 - Kontextwiedergabe als Datenausgang
 - Reflexion
-- Rueckfuehrung
+- Rückführung
 - innere Wahrnehmung
 - Selbstregulierung
 
@@ -22,12 +22,12 @@ Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, auf
 ## 2. Entwurfsprinzipien
 
 1. **Kontinuierlicher Zustandsraum**
-   - keine harten Mauern im Feld
+   - keine harten Maürn im Feld
    - keine ontologisch getrennten Klassen
-   - Interpretationszonen nur als spaetere Auswertung
+   - Interpretationszonen nur als spätere Auswertung
 
 2. **Spikende Verarbeitung**
-   - interne Repraesentationen werden ueber spikende Populationen getragen
+   - interne Repräsentationen werden über spikende Populationen getragen
    - der innere Zustand bleibt rekurrent aktiv
 
 3. **Trennung von Feldkern und Interpretation**
@@ -38,7 +38,7 @@ Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, auf
    - kein direktes Reiz-Reaktions-System
 
 5. **Regulation als Kernfunktion**
-   - das System muss Ueberauslenkung, Schleifenbildung und Instabilitaet aktiv beeinflussen koennen
+   - das System muss überauslenkung, Schleifenbildung und Instabilität aktiv beeinflussen koennen
 
 ## 3. Formale Grundlage
 
@@ -54,7 +54,7 @@ Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, auf
 Normierung:
 `integral_{-3}^{+3} rho(x,t) dx = 1`
 
-### 3.4 Rueckfuehrung / Drift
+### 3.4 Rückführung / Drift
 `v(x) = -k x`, mit `k > 0`
 
 ### 3.5 Potenzial
@@ -89,7 +89,7 @@ Wichtig:
 
 ### 4.1 Modul U - Wahrnehmung
 **Aufgabe**
-- externe Reize in interne Eingangsvektoren uebersetzen
+- externe Reize in interne Eingangsvektoren übersetzen
 
 **Eingang**
 - sensorische Daten
@@ -110,18 +110,18 @@ Wichtig:
 
 ### 4.2 Modul N - Spikende neuronale Verarbeitung
 **Aufgabe**
-- Reize in spikende Aktivitaetsmuster uebersetzen
-- rekurrente Aktivitaet aufrechterhalten
+- Reize in spikende Aktivitätsmuster übersetzen
+- rekurrente Aktivität aufrechterhalten
 
 **Zustand**
 - Spike-Muster
 - firing rates
-- Ensemble-Zustaende
+- Ensemble-Zustände
 
 **Form**
 - Nengo-Ensembles
 - rekurrente Verbindungen
-- spaeter optional Subnetze fuer verschiedene Funktionen
+- später optional Subnetze für verschiedene Funktionen
 
 **Ausgang**
 - `n(t)`
@@ -139,7 +139,7 @@ Wichtig:
 `dx/dt = -k_reg(t) * x + W_in * n(t) + r_mem(t) + eta(t)`
 
 **Bedeutung**
-- `-k_reg(t) * x` = adaptive Rueckfuehrung
+- `-k_reg(t) * x` = adaptive Rückführung
 - `W_in * n(t)` = Wahrnehmung wirkt auf Feld
 - `r_mem(t)` = Replay / Denken
 - `eta(t)` = Fluktuation
@@ -148,18 +148,18 @@ Wichtig:
 
 ### 4.4 Modul RHO - Feldrekonstruktion
 **Aufgabe**
-- aus den neuronalen Aktivitaeten eine kontinuierliche Dichte ueber dem Raum rekonstruieren
+- aus den neuronalen Aktivitäten eine kontinuierliche Dichte über dem Raum rekonstruieren
 
 **Zustand**
 - `rho(x,t)`
 
 **Praktische Umsetzung**
 - jedem Ensemble / jeder Unterpopulation wird ein bevorzugter Bereich `p_i` im Intervall `[-3, +3]` zugeordnet
-- aus Aktivitaet `a_i(t)` wird Dichte rekonstruiert:
+- aus Aktivität `a_i(t)` wird Dichte rekonstruiert:
   `rho(x,t) = sum_i a_i(t) * K(x - p_i)`
 
 **Nutzen**
-- Mehrfachaktivitaet sichtbar
+- Mehrfachaktivität sichtbar
 - Cluster / Peaks sichtbar
 - Feldunruhe berechenbar
 
@@ -180,39 +180,39 @@ Wichtig:
 **Clusterstruktur**
 - `mu_j` = Schwerpunkt
 - `Sigma_j` = Streuung
-- `strength_j` = Auftretenshaeufigkeit / Gewicht
+- `strength_j` = Auftretenshäufigkeit / Gewicht
 - `age_j`
 - `stability_j`
 
 **Methoden**
-- zuerst offline: DBSCAN / HDBSCAN / Peak-Matching
-- spaeter online: streaming clustering
+- zürst offline: DBSCAN / HDBSCAN / Peak-Matching
+- später online: streaming clustering
 
 ---
 
-### 4.6 Modul M - Cluster-Gedaechtnis
+### 4.6 Modul M - Cluster-Gedächtnis
 **Aufgabe**
-- haeufige oder relevante Cluster speichern
-- spaetere Wiederaktivierung ermoeglichen
+- häufige oder relevante Cluster speichern
+- spätere Wiederaktivierung ermoeglichen
 
 **Zustand**
 - Gedächtnisbank `Mem = {C_1, ..., C_k}`
 
 **Funktionen**
-- Staerkung haeufiger Muster
+- Stärkung häufiger Muster
 - Vergessen irrelevanter Muster
 - Replay-Ausloeser
 
 ---
 
-### 4.7 Modul G - Gruendeln / Denken / Replay
+### 4.7 Modul G - Grübeln / Denken / Replay
 **Aufgabe**
-- interne Aktivitaet ohne neuen Aussenreiz weiterlaufen lassen
+- interne Aktivität ohne neün Aussenreiz weiterlaufen lassen
 
 **Eingang**
-- Cluster-Gedaechtnis
-- aktueller Kontext
-- aktuelle Feldlage
+- Cluster-Gedächtnis
+- aktüller Kontext
+- aktülle Feldlage
 
 **Ausgang**
 - `r_mem(t)`
@@ -222,7 +222,7 @@ Wichtig:
 
 **Interpretation**
 - Denken = geordnete interne Wiederaufnahme
-- Gruendeln = selbstverstaerkende Replay-Schleife mit schwacher Aufloesung
+- Grübeln = selbstverstärkende Replay-Schleife mit schwacher Aufloesung
 
 ---
 
@@ -236,40 +236,40 @@ Wichtig:
 **Update**
 `c(t+1) = lambda_c * c(t) + f(x(t), rho(x,t), C_t, u(t), q(t))`
 
-**Kontext enthaelt**
+**Kontext enthält**
 - letzte Feldlage
-- Richtungsveraenderung
+- Richtungsveränderung
 - dominante Cluster
-- Rueckkehr-/Drift-Tendenz
+- Rückkehr-/Drift-Tendenz
 - Reizhistorie
-- Stabilitaetsgrad
+- Stabilitätsgrad
 
 ---
 
 ### 4.9 Modul L - Kontextlernen
 **Aufgabe**
-- lernen, welche Konfigurationen zu welchen Feldmustern und Regulationsbedarfen fuehren
+- lernen, welche Konfigurationen zu welchen Feldmustern und Regulationsbedarfen führen
 
 **Lernobjekte**
-- Clusteruebergaenge
+- Clusterübergänge
 - Kontext -> Cluster
 - Kontext -> Regulationserfolg
 - Kontext -> Replay-Risiko
 
 **Minimalstart**
-- Uebergangsmatrizen
+- übergangsmatrizen
 - cluster conditionals
-- Erfolgszaehler fuer Regler
+- Erfolgszähler für Regler
 
-**spaeter**
+**später**
 - lernende Verbindungen in Nengo
-- plastische Gewichte fuer Kontextkopplung
+- plastische Gewichte für Kontextkopplung
 
 ---
 
 ### 4.10 Modul F - Reflexion
 **Aufgabe**
-- aktuellen Zustand mit Vorzustand, Verlauf und bekannten Mustern vergleichen
+- aktüllen Zustand mit Vorzustand, Verlauf und bekannten Mustern vergleichen
 
 **Zustand**
 - `rfl(t)`
@@ -280,7 +280,7 @@ Wichtig:
 **Leistung**
 - Schleifen erkennen
 - Drift erkennen
-- Rueckkehr erkennen
+- Rückkehr erkennen
 - "dieses Muster kenne ich" abbilden
 
 ---
@@ -314,16 +314,16 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - `g(t)`
 
 **Regelbare Groessen**
-- Rueckfuehrungsstaerke `k_reg(t)`
+- Rückführungsstärke `k_reg(t)`
 - Replay-Gain
 - Input-Gain
 - Noise-Level
 
 **Beispiele**
-- Ueberauslenkung -> `k_reg` erhoehen
+- überauslenkung -> `k_reg` erhoehen
 - Erstarrung -> Input-Gain leicht anheben
-- Gruendel-Schleife -> Replay-Gain senken
-- geordnete Exploration -> Rueckfuehrung etwas lockern
+- Gründel-Schleife -> Replay-Gain senken
+- geordnete Exploration -> Rückführung etwas lockern
 
 ---
 
@@ -332,7 +332,7 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - internen Zustand sichtbar machen
 
 **Ausgabe**
-- Spike-Aktivitaet
+- Spike-Aktivität
 - `x(t)`
 - `rho(x,t)`
 - `mu_x(t)`
@@ -345,7 +345,7 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - Reglerzustand `g(t)`
 
 **Wichtig**
-- Datenausgang ist zunaechst Beobachtung, nicht Verhalten.
+- Datenausgang ist zunächst Beobachtung, nicht Verhalten.
 
 ## 5. Signalfluss
 
@@ -366,18 +366,18 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 ### Phase A - Minimaler neuraler MCM-Core
 **Ziel**
 - Wahrnehmung
-- spikende Aktivitaet
+- spikende Aktivität
 - kontinuierlicher Feldzustand
-- einfache Rueckfuehrung
+- einfache Rückführung
 - Datenausgang
 
 **Lieferobjekte**
-- Nengo-Modell mit Input-Node, Ensemble, rekurrenter Rueckfuehrung
-- Probe fuer Spikes, Rates, `x(t)`
+- Nengo-Modell mit Input-Node, Ensemble, rekurrenter Rückführung
+- Probe für Spikes, Rates, `x(t)`
 
 **Abnahmekriterium**
 - Reize verschieben `x(t)`
-- ohne Reiz kehrt `x(t)` in Richtung `0` zurueck
+- ohne Reiz kehrt `x(t)` in Richtung `0` zurück
 
 ---
 
@@ -387,18 +387,18 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - Mittelwert / Varianz / Peaks ableiten
 
 **Abnahmekriterium**
-- mehr als ein Aktivitaetszentrum im Feld erkennbar
-- Varianz steigt bei Instabilitaet sichtbar an
+- mehr als ein Aktivitätszentrum im Feld erkennbar
+- Varianz steigt bei Instabilität sichtbar an
 
 ---
 
-### Phase C - Clustering und Gedaechtnis
+### Phase C - Clustering und Gedächtnis
 **Ziel**
 - wiederkehrende Feldmuster automatisch sammeln
 - Replay vorbereiten
 
 **Abnahmekriterium**
-- stabile Cluster ueber mehrere Runs reproduzierbar
+- stabile Cluster über mehrere Runs reproduzierbar
 - Replay kann bekannte Muster reaktivieren
 
 ---
@@ -406,19 +406,19 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 ### Phase D - Kontextbildung und Kontextlernen
 **Ziel**
 - internen Kontextvektor erzeugen
-- Uebergaenge und Regelungsbedarf lernen
+- übergänge und Regelungsbedarf lernen
 
 **Abnahmekriterium**
-- gleicher Stimulus fuehrt bei verschiedenem Kontext zu verschiedenen Feldverlaeufen
+- gleicher Stimulus führt bei verschiedenem Kontext zu verschiedenen Feldverläufen
 
 ---
 
 ### Phase E - Reflexion und Self-State
 **Ziel**
-- System kann eigenen Zustand als Meta-Zustand ausdruecken
+- System kann eigenen Zustand als Meta-Zustand ausdrücken
 
 **Abnahmekriterium**
-- Schleifen, Drift, Rueckkehr, Instabilitaet werden intern kenntlich
+- Schleifen, Drift, Rückkehr, Instabilität werden intern kenntlich
 
 ---
 
@@ -428,7 +428,7 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 
 **Abnahmekriterium**
 - extreme Auslenkungen nehmen ab
-- geordnete Zwischenzustaende nehmen zu
+- geordnete Zwischenzustände nehmen zu
 - Replay-Schleifen werden kontrollierbar
 
 ## 7. Technologievorschlag
@@ -436,12 +436,12 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 ### Kernstack
 - Python
 - Nengo
-- NengoSPA fuer spaetere Symbol-/Kontextkomponenten
+- NengoSPA für spätere Symbol-/Kontextkomponenten
 - NumPy
 - SciPy
-- scikit-learn oder hdbscan fuer Clustering
-- pandas fuer Auswertung
-- matplotlib fuer Feld-/Aktivitaetsplots
+- scikit-learn oder hdbscan für Clustering
+- pandas für Auswertung
+- matplotlib für Feld-/Aktivitätsplots
 
 ### Empfohlene Repo-Bausteine
 ```text
@@ -483,42 +483,42 @@ docs/
 ## 8. Messgroessen und Evaluation
 
 ### Kernmetriken
-- Rueckkehrzeit zum Zentrum
+- Rückkehrzeit zum Zentrum
 - Maximalabweichung
 - mittlere Feldvarianz
 - Anzahl stabiler Cluster
-- Replay-Intensitaet
-- Schleifenlaenge
+- Replay-Intensität
+- Schleifenlänge
 - Regulationswirksamkeit
-- Kontextsensitivitaet
+- Kontextsensitivität
 - Selbstzustandskonsistenz
 
 ### Beispiel-Fragen
 - Wird Wahrnehmung als innere Lage gehalten?
 - Bleiben Wiederkehrmuster als Cluster erhalten?
-- Kann das System ohne neuen Stimulus intern weiterarbeiten?
-- Aendert Regulation die Dynamik messbar?
+- Kann das System ohne neün Stimulus intern weiterarbeiten?
+- ändert Regulation die Dynamik messbar?
 - Liefert der Datenausgang einen sinnvollen Zustandsreport?
 
 ## 9. Risiken und offene Punkte
 
 ### Technische Risiken
 - zu schwache Kopplung: Feld bleibt trivial
-- zu starke Kopplung: Feld kippt in Dauerauslenkung
+- zu starke Kopplung: Feld kippt in Daürauslenkung
 - Replay destabilisiert Grunddynamik
 - Clustering wird zu verrauscht
 - Kontext explodiert dimensional
 
 ### Konzeptionelle Risiken
 - MCM ist hypothetisch und nicht empirisch validiert
-- die psychologischen Zonen duerfen nicht mit echter Neuroanatomie verwechselt werden
+- die psychologischen Zonen dürfen nicht mit echter Neuroanatomie verwechselt werden
 - "Reflexion" bleibt hier technische Meta-Verarbeitung, kein Nachweis von Bewusstsein
 
-## 10. Harte Entscheidungsregeln fuer die Umsetzung
+## 10. Harte Entscheidungsregeln für die Umsetzung
 
 1. Der Feldraum bleibt **kontinuierlich**.
 2. Zonen bleiben **Readout**, nicht Strukturgrenzen.
-3. Verhalten ist **sekundaer**; primaer ist innerer Zustandsreport.
+3. Verhalten ist **sekundär**; primär ist innerer Zustandsreport.
 4. Erst **Phase A-F** stabilisieren, dann erst komplexe Agentik.
 5. Kein Funktionswildwuchs vor sauberem Kern.
 
@@ -528,7 +528,7 @@ Wenn dieser Plan sauber umgesetzt ist, entsteht:
 
 - kein klassisches Reiz-Reaktions-System
 - kein reines Symbolsystem
-- kein vollstaendiger Gehirnnachbau
+- kein vollständiger Gehirnnachbau
 
 sondern ein:
 
@@ -536,6 +536,6 @@ sondern ein:
 
 ## 12. Abschlussformel des Projekts
 
-**Spaun-Technik liefert die neuronale Aktivitaet.  
+**Spaun-Technik liefert die neuronale Aktivität.  
 MCM liefert den inneren Zustandsraum.  
-Die Kombination liefert ein System, das Wahrnehmung nicht nur verarbeitet, sondern als eigene Lage haelt, weiterbearbeitet, wiederaufnimmt und reguliert.**
+Die Kombination liefert ein System, das Wahrnehmung nicht nur verarbeitet, sondern als eigene Lage hält, weiterbearbeitet, wiederaufnimmt und reguliert.**
