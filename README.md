@@ -164,12 +164,12 @@ Es ist ein **technischer Entwurf für eine hypothetische KI-Architektur**.
 
 ## Referenzen
 
-### Offizielle / etablierte Qüllen
+### Offizielle / etablierte Quellen
 - Nengo Documentation: https://www.nengo.ai/documentation/
 - Stewart, Choo, Eliasmith (2012), *Spaun: A Perception-Cognition-Action Model Using Spiking Neurons*: https://compneuro.uwaterloo.ca/publications/stewart2012c.html
 - Eliasmith (2013), *The Semantic Pointer Architecture*: https://academic.oup.com/book/6263/chapter/149922017
 
-### MCM-Qüllen (Projektbasis)
+### MCM-Quellen (Projektbasis)
 
 - [Dokument CC - Formale Gesamtstruktur der MCM](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20%E2%80%93%20Mental%20Core%20Matrix/CC-%20Formale%20Gesamtstruktur%20der%20MCM.pdf)
 - [Dokument BB - Mathematische Grundform der reinen MCM](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20%E2%80%93%20Mental%20Core%20Matrix/BB%20-%20Mathematische%20Grundform%20der%20reinen%20MCM.pdf)
