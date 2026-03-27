@@ -15,6 +15,7 @@ Ziel ist die Umsetzung eines **spikenden inneren Zustandsmodells**, das die folg
 - Reflexion
 - Rückführung
 - innere Wahrnehmung
+- Meta-Regulation
 - Selbstregulierung
 
 Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, aufbaubare Kernarchitektur**.
@@ -39,6 +40,10 @@ Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, auf
 
 5. **Regulation als Kernfunktion**
    - das System muss überauslenkung, Schleifenbildung und Instabilität aktiv beeinflussen koennen
+
+6. **Metaregulation als eigene Ordnungsebene**
+   - Metaregulatoren beschreiben nicht die direkte Feldlage, sondern wie das System seine Lage verarbeitet
+   - sie modulieren Schwellen, Rückführung, Offenhaltung, Schutzweite und Variabilitätsbalance
 
 ## 3. Formale Grundlage
 
@@ -306,18 +311,61 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 
 ---
 
-### 4.12 Modul REG - Selbstregulierung
+### 4.12 Modul META - Meta-Regulation
+**Aufgabe**
+- Regler zweiter Ordnung aus Verlauf, Self-State, Reflexion und Kontext ableiten
+- bestimmen, wie stark das System Spannung verarbeitet, begrenzt, offenhält oder zurückführt
+
+**Zustand**
+- `m(t)`
+
+**Technisch besonders MCM-nahe Metaregulatoren**
+- Rückführungsstärke
+- Integrationsfähigkeit
+- Varianzregulation
+- Schutzweitenregulation
+- Selbstreflexion
+- Distanzregulation
+
+**Arbeitsbegriffe mit guter MCM-Passung**
+- Belastungstoleranz
+- Frustrationstoleranz
+- Impulskontrolle
+- Vertrauen
+- Mut
+- Geduld
+- Standhaftigkeit
+- Strukturbindung
+
+**Funktion**
+`m(t) = z(q(t), rfl(t), c(t), history)`
+
+**Ausgang**
+- Meta-Parameter für Regulation
+- Schwellen
+- Schutzweite
+- Varianzband
+- Offenhaltungsgrad
+
+---
+
+### 4.13 Modul REG - Selbstregulierung
 **Aufgabe**
 - Feld- und Replay-Dynamik adaptiv modulieren
 
 **Reglerzustand**
 - `g(t)`
 
+**Eingang**
+- Meta-Regulationsvektor `m(t)`
+
 **Regelbare Groessen**
 - Rückführungsstärke `k_reg(t)`
 - Replay-Gain
 - Input-Gain
 - Noise-Level
+- Schutzschwellen
+- Felddämpfung / Offenhaltung
 
 **Beispiele**
 - überauslenkung -> `k_reg` erhoehen
@@ -327,7 +375,7 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 
 ---
 
-### 4.13 Modul Y - Datenausgang
+### 4.14 Modul Y - Datenausgang
 **Aufgabe**
 - internen Zustand sichtbar machen
 
@@ -342,6 +390,7 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - Kontext `c(t)`
 - Self-State `q(t)`
 - Reflexion `rfl(t)`
+- Meta-Regulationszustand `m(t)`
 - Reglerzustand `g(t)`
 
 **Wichtig**
@@ -357,9 +406,10 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 `x(t), rho(x,t), C_t, u(t) -> c(t+1)`
 `x(t), c(t), C_t -> rfl(t)`
 `x(t), rho(x,t), rfl(t) -> q(t)`
-`q(t), c(t), rfl(t) -> g(t)`
-`g(t) -> k_reg(t), replay_gain, input_gain, noise_gain`
-`x(t), rho(x,t), c(t), q(t), rfl(t), g(t) -> y(t)`
+`q(t), c(t), rfl(t), history -> m(t)`
+`m(t), q(t), c(t), rfl(t) -> g(t)`
+`g(t) -> k_reg(t), replay_gain, input_gain, noise_gain, protection_width`
+`x(t), rho(x,t), c(t), q(t), rfl(t), m(t), g(t) -> y(t)`
 
 ## 6. Umsetzungsphasen
 
@@ -422,11 +472,13 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 
 ---
 
-### Phase F - Selbstregulierung
+### Phase F - Meta-Regulation und Selbstregulierung
 **Ziel**
+- Metaregulatoren zweiter Ordnung ableiten
 - adaptive Regelung statt nur passiver Dynamik
 
 **Abnahmekriterium**
+- Meta-Regulatoren modulieren Reglerparameter nachvollziehbar
 - extreme Auslenkungen nehmen ab
 - geordnete Zwischenzustände nehmen zu
 - Replay-Schleifen werden kontrollierbar
@@ -457,6 +509,7 @@ src/
     context.py
     reflection.py
     self_state.py
+    meta_regulation.py
     regulation.py
     output.py
 
@@ -490,6 +543,7 @@ docs/
 - Replay-Intensität
 - Schleifenlänge
 - Regulationswirksamkeit
+- Metaregulationskonsistenz
 - Kontextsensitivität
 - Selbstzustandskonsistenz
 
@@ -518,9 +572,10 @@ docs/
 
 1. Der Feldraum bleibt **kontinuierlich**.
 2. Zonen bleiben **Readout**, nicht Strukturgrenzen.
-3. Verhalten ist **sekundär**; primär ist innerer Zustandsreport.
-4. Erst **Phase A-F** stabilisieren, dann erst komplexe Agentik.
-5. Kein Funktionswildwuchs vor sauberem Kern.
+3. Metaregulatoren bleiben **zweite Ordnung** und werden nicht mit Primärzuständen vermischt.
+4. Verhalten ist **sekundär**; primär ist innerer Zustandsreport.
+5. Erst **Phase A-F** stabilisieren, dann erst komplexe Agentik.
+6. Kein Funktionswildwuchs vor sauberem Kern.
 
 ## 11. Erwartetes Ergebnis
 

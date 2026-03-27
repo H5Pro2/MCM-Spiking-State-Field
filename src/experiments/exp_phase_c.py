@@ -3,38 +3,38 @@
 # --------------------------------------------------
 from __future__ import annotations
 
-from core.clustering import (
+from src.core.clustering import (
     build_cluster_features,
     fit_clusters,
     prune_weak_clusters,
 )
-from core.field_density import (
+from src.core.field_density import (
     build_field_axis,
     compute_density_mean,
     compute_density_variance,
     find_density_peaks,
     reconstruct_density,
 )
-from core.mcm_state import (
+from src.core.mcm_state import (
     compute_state_velocity,
     initialize_mcm_state,
     update_mcm_state,
 )
-from core.memory import (
+from src.core.memory import (
     decay_cluster_strength,
     forget_irrelevant_clusters,
     retrieve_relevant_clusters,
     store_cluster,
     strengthen_cluster,
 )
-from core.neural_core import (
+from src.core.neural_core import (
     build_neural_core,
     decode_neural_state,
     step_neural_core,
 )
-from core.output import build_output_state
-from core.perception import apply_input_gain, encode_perception
-from core.replay import (
+from src.core.output import build_output_state
+from src.core.perception import apply_input_gain, encode_perception
+from src.core.replay import (
     compute_replay_signal,
     detect_rumination_loop,
 )

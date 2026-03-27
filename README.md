@@ -16,6 +16,7 @@ Ziel ist **kein Nachbau des gesamten Spaun-Systems**, sondern eine fokussierte A
 - Reflexion
 - innerer Wahrnehmung ("wie geht es mir?")
 - Selbstregulierung
+- Meta-Regulation als Regler zweiter Ordnung
 - Datenausgang als interner Zustandsreport
 
 ## Kernidee
@@ -43,7 +44,8 @@ Die MCM liefert dazu einen **eigenen inneren Zustandsraum**, in dem Reize nicht 
 - Einzelzustand `x(t)`
 - Rückführung zum Zentrum
 - Kontext- und Selbstregulationslogik
-- symbolische Zonen nur als Leseschicht `Phi`, nicht als Maürn im Feld
+- Meta-Regulation als Regler zweiter Ordnung zwischen Zustandslage und Selbstregulierung
+- symbolische Zonen nur als Leseschicht `Phi`!, nicht als Mauern im Feld
 
 ## Architektur auf einen Blick
 
@@ -66,13 +68,17 @@ flowchart LR
     C --> J["Innere Wahrnehmung"]
     D --> J
     I --> J
-    J --> K["Selbstregulierung"]
-    K --> C
-    K --> D
+    J --> K["Meta-Regulation"]
+    I --> K
+    F --> K
+    K --> M["Selbstregulierung"]
+    M --> C
+    M --> D
     C --> L["Datenausgang"]
     D --> L
     F --> L
     J --> L
+    K --> L
 ```
 
 ## Mathematischer Kern
@@ -98,7 +104,7 @@ flowchart LR
 ### 7) Symbolische Leseschicht
 `Phi: X -> A`
 
-Wichtig: `Phi` beschreibt **Interpretationszonen**, aber keine harte Strukturgrenze im Feld.
+! Wichtig: `Phi` beschreibt **Interpretationszonen**, aber keine harte Strukturgrenze im Feld. !
 
 ## Projektziel
 
@@ -107,11 +113,12 @@ Am Ende soll ein System entstehen, das:
 1. Reize in spikende Aktivität übersetzt
 2. diese Aktivität in einen inneren Feldzustand überführt
 3. wiederkehrende Feldmuster clustert
-4. interne Replay-Schleifen für Denken / Gründeln erzeugt
+4. interne Replay-Schleifen für Denken / Grübeln erzeugt
 5. eigenen Kontext bildet und lernt
 6. den eigenen Zustand beobachtet
-7. sich selbst reguliert
-8. seinen inneren Zustand als Datenkanal ausgeben kann
+7. Metaregulatoren zweiter Ordnung bildet
+8. sich selbst reguliert
+9. seinen inneren Zustand als Datenkanal ausgeben kann
 
 ## Repo-Struktur
 
@@ -148,7 +155,8 @@ mcm-spaun-state-field/
 - Verlauf vergleichen
 - innere Wahrnehmung ableiten
 
-### Phase 5 - Selbstregulierung
+### Phase 5 - Meta-Regulation und Selbstregulierung
+- Metaregulatoren zweiter Ordnung ableiten
 - Rückführung adaptiv modulieren
 - Replay dämpfen/verstärken
 - Instabilität aktiv korrigieren
@@ -175,3 +183,4 @@ Es ist ein **technischer Entwurf für eine hypothetische KI-Architektur**.
 - [Dokument BB - Mathematische Grundform der reinen MCM](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20%E2%80%93%20Mental%20Core%20Matrix/BB%20-%20Mathematische%20Grundform%20der%20reinen%20MCM.pdf)
 - [Abhandlung MCM_KI_Modell](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/MCM%20-%20Code%20Beispiele/MCM%20KI%20Modell/Abhandlung%20MCM_KI_Modell.pdf)
 - [Block J - Die Mental Core Matrix als mögliches Strukturmodell komplexer Systeme](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/Abhandlungen/MCM%20-%20Hauptabhandlungen/Teil%20II%20-%20Psychologische%20Dynamik%20der%20Mental%20Core%20Matrix/Abhandlung%20Block%20J%20-%20Die%20menschliche%20Psyche%20im%20Modell%20der%20Mental%20Core%20Matrix.pdf)
+- [Block S - Mögliche Metaregulatoren im Modell der Mental Core Matrix](https://github.com/H5Pro2/Mental-Core-Matrix-MCM/blob/main/Abhandlungen/MCM%20-%20Hauptabhandlungen/Teil%20II%20-%20Psychologische%20Dynamik%20der%20Mental%20Core%20Matrix/Abhandlung%20Block%20S%20-%20M%C3%B6gliche%20Metaregulatoren%20im%20Modell%20der%20Mental%20Core%20Matrix.pdf)

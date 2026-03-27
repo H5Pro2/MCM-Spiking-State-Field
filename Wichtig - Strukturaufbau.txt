@@ -1,0 +1,79 @@
+--------------------------------------------------
+Struktur-Erweiterung
+--------------------------------------------------
+Neuer Kernpunkt:
+src/core/meta_regulation.py
+Inhaltlich dort hinein:
+Rückführungsstärke
+Integrationsfähigkeit
+Varianzregulation
+Schutzweitenregulation
+Selbstreflexion
+Distanzregulation
+optional erweitert um:
+Belastungstoleranz
+Frustrationstoleranz
+Impulskontrolle
+Vertrauen
+Strukturbindung
+
+--------------------------------------------------
+Empfohlene Einordnung in die Gesamtstruktur
+--------------------------------------------------
+
+/mnt/data/
+├── src/
+│   ├── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── perception.py
+│   │   ├── neural_core.py
+│   │   ├── mcm_state.py
+│   │   ├── field_density.py
+│   │   ├── clustering.py
+│   │   ├── memory.py
+│   │   ├── replay.py
+│   │   ├── context.py
+│   │   ├── reflection.py
+│   │   ├── self_state.py
+│   │   ├── meta_regulation.py
+│   │   ├── regulation.py
+│   │   └── output.py
+│   ├── experiments/
+│   │   ├── __init__.py
+│   │   ├── exp_phase_a.py
+│   │   ├── exp_phase_b.py
+│   │   └── exp_phase_c.py
+│   └── viz/
+│       ├── __init__.py
+│       ├── plot_field.py
+│       ├── plot_clusters.py
+│       └── plot_spikes.py
+└── tests/
+    ├── __init__.py
+    ├── test_mcm_state.py
+    ├── test_field_density.py
+    └── test_clustering.py
+
+--------------------------------------------------
+Funktionsrolle
+--------------------------------------------------
+meta_regulation.py
+verwaltet Regler zweiter Ordnung
+moduliert Schwellen, Rückführung, Offenhaltung, Schutzweite, Varianzband
+gibt Steuerwerte an regulation.py
+regulation.py
+setzt diese Werte operativ auf:
+input gain
+replay gain
+damping
+noise
+center pull
+threshold / protection width
+--------------------------------------------------
+Priorität
+--------------------------------------------------
+hoch
+Grund:
+Dein Block S liefert eine sauber begründete zusätzliche Modellebene
+diese Ebene fehlt im bisherigen Code-Stand noch als eigene Strukturklasse.
