@@ -1,6 +1,6 @@
---------------------------------------------------
-Einfacher Plan vom Projekt
---------------------------------------------------
+# --------------------------------------------------
+# Einfacher Plan vom Projekt
+# --------------------------------------------------
 Reize aufnehmen
 Das System bekommt Eingaben (z. B. valence, novelty, relevance).
 
@@ -25,9 +25,9 @@ Ein „Regler über dem Regler“ passt Rückführung/Replay an, damit das Syste
 Datenausgabe
 Am Ende gibt es einen internen Zustandsreport aus (nicht primär Verhalten nach außen).
 
---------------------------------------------------
-Aktuelle Gesamtstruktur
---------------------------------------------------
+# --------------------------------------------------
+# Aktuelle Gesamtstruktur
+# --------------------------------------------------
 
 /mnt/data/
 │── main.py
@@ -83,9 +83,9 @@ Aktuelle Gesamtstruktur
     ├── test_replay.py
     └── test_self_state.py
 
---------------------------------------------------
-Zusammenfassung
---------------------------------------------------
+# --------------------------------------------------
+# Zusammenfassung
+# --------------------------------------------------
 
 1) Was das Projekt sein will (Zielbild)
 Das Repo beschreibt eine Architektur, die spikende neuronale Verarbeitung (Spaun/Nengo-Idee) mit einem kontinuierlichen MCM-Zustandsraum kombiniert — inklusive Kontext, Reflexion, Meta-Regulation und Selbstregulierung als Gesamtziel. 
