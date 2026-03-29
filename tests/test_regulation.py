@@ -5,6 +5,14 @@ from __future__ import annotations
 
 import pytest
 
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+    print(f"Added {PROJECT_ROOT} to sys.path")
+
 from src.core.meta_regulation import build_meta_regulation_state
 from src.core.regulation import derive_regulation_parameters, regulate_replay_signal
 from src.core.reflection import build_reflection_state
