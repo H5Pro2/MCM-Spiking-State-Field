@@ -8,22 +8,21 @@ Ziel ist die Umsetzung eines **spikenden inneren Zustandsmodells**, das die folg
 - neuronale Verarbeitung
 - kontinuierlicher MCM-Feldzustand
 - Clustering
-- Grübeln / Denken
+- Grübeln / Denken / Replay
 - eigene Kontextbildung
 - Kontextlernen
-- Kontextwiedergabe als Datenausgang
 - Reflexion
-- Rückführung
-- innere Wahrnehmung
+- innere Wahrnehmung / Self-State
 - Meta-Regulation
 - Selbstregulierung
+- Datenausgang als interner Zustandsreport
 
 Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, aufbaubare Kernarchitektur**.
 
 ## 2. Entwurfsprinzipien
 
 1. **Kontinuierlicher Zustandsraum**
-   - keine harten Maürn im Feld
+   - keine harten Mauern im Feld
    - keine ontologisch getrennten Klassen
    - Interpretationszonen nur als spätere Auswertung
 
@@ -39,9 +38,9 @@ Das Ziel ist **kein komplettes Brain-Scale-System**, sondern eine **saubere, auf
    - kein direktes Reiz-Reaktions-System
 
 5. **Regulation als Kernfunktion**
-   - das System muss überauslenkung, Schleifenbildung und Instabilität aktiv beeinflussen koennen
+   - das System muss Überauslenkung, Schleifenbildung und Instabilität aktiv beeinflussen können
 
-6. **Metaregulation als eigene Ordnungsebene**
+6. **Meta-Regulation als eigene Ordnungsebene**
    - Metaregulatoren beschreiben nicht die direkte Feldlage, sondern wie das System seine Lage verarbeitet
    - sie modulieren Schwellen, Rückführung, Offenhaltung, Schutzweite und Variabilitätsbalance
 
@@ -77,7 +76,7 @@ Normierung:
 Optional:
 `S(x) = |x|^alpha`, mit `alpha > 1`
 
-### 3.9 Feldgroessen
+### 3.9 Feldgrößen
 Mittelwert:
 `mu_x(t) = integral_{-3}^{+3} x * rho(x,t) dx`
 
@@ -99,7 +98,7 @@ Wichtig:
 **Eingang**
 - sensorische Daten
 - Ereignisse
-- Kontext von aussen
+- Kontext von außen
 
 **Ausgang**
 - `u(t)`
@@ -109,9 +108,7 @@ Wichtig:
 - novelty
 - relevance
 - uncertainty
-- social salience
-
----
+- social_salience
 
 ### 4.2 Modul N - Spikende neuronale Verarbeitung
 **Aufgabe**
@@ -123,15 +120,8 @@ Wichtig:
 - firing rates
 - Ensemble-Zustände
 
-**Form**
-- Nengo-Ensembles
-- rekurrente Verbindungen
-- später optional Subnetze für verschiedene Funktionen
-
 **Ausgang**
 - `n(t)`
-
----
 
 ### 4.3 Modul X - MCM-Einzelzustand
 **Aufgabe**
@@ -142,14 +132,6 @@ Wichtig:
 
 **Update**
 `dx/dt = -k_reg(t) * x + W_in * n(t) + r_mem(t) + eta(t)`
-
-**Bedeutung**
-- `-k_reg(t) * x` = adaptive Rückführung
-- `W_in * n(t)` = Wahrnehmung wirkt auf Feld
-- `r_mem(t)` = Replay / Denken
-- `eta(t)` = Fluktuation
-
----
 
 ### 4.4 Modul RHO - Feldrekonstruktion
 **Aufgabe**
@@ -163,21 +145,9 @@ Wichtig:
 - aus Aktivität `a_i(t)` wird Dichte rekonstruiert:
   `rho(x,t) = sum_i a_i(t) * K(x - p_i)`
 
-**Nutzen**
-- Mehrfachaktivität sichtbar
-- Cluster / Peaks sichtbar
-- Feldunruhe berechenbar
-
----
-
 ### 4.5 Modul C - Clustering
 **Aufgabe**
 - wiederkehrende Muster in `(x, rho, Var_x, Verlauf)` erkennen
-
-**Eingang**
-- Zeitfenster von `x(t)`
-- Zeitfenster von `rho(x,t)`
-- Feldgroessen
 
 **Ausgang**
 - Clusterobjekte `C_j`
@@ -189,47 +159,20 @@ Wichtig:
 - `age_j`
 - `stability_j`
 
-**Methoden**
-- zürst offline: DBSCAN / HDBSCAN / Peak-Matching
-- später online: streaming clustering
-
----
-
 ### 4.6 Modul M - Cluster-Gedächtnis
 **Aufgabe**
 - häufige oder relevante Cluster speichern
-- spätere Wiederaktivierung ermoeglichen
-
-**Zustand**
-- Gedächtnisbank `Mem = {C_1, ..., C_k}`
-
-**Funktionen**
-- Stärkung häufiger Muster
-- Vergessen irrelevanter Muster
-- Replay-Ausloeser
-
----
+- spätere Wiederaktivierung ermöglichen
 
 ### 4.7 Modul G - Grübeln / Denken / Replay
 **Aufgabe**
-- interne Aktivität ohne neün Aussenreiz weiterlaufen lassen
-
-**Eingang**
-- Cluster-Gedächtnis
-- aktüller Kontext
-- aktülle Feldlage
+- interne Aktivität ohne neuen Außenreiz weiterlaufen lassen
 
 **Ausgang**
 - `r_mem(t)`
 
 **Replay-Regel**
 `r_mem(t) = sum_j gate_j(t) * K(x - mu_j)`
-
-**Interpretation**
-- Denken = geordnete interne Wiederaufnahme
-- Grübeln = selbstverstärkende Replay-Schleife mit schwacher Aufloesung
-
----
 
 ### 4.8 Modul K - Kontextbildung
 **Aufgabe**
@@ -238,57 +181,16 @@ Wichtig:
 **Zustand**
 - `c(t)`
 
-**Update**
-`c(t+1) = lambda_c * c(t) + f(x(t), rho(x,t), C_t, u(t), q(t))`
-
-**Kontext enthält**
-- letzte Feldlage
-- Richtungsveränderung
-- dominante Cluster
-- Rückkehr-/Drift-Tendenz
-- Reizhistorie
-- Stabilitätsgrad
-
----
-
 ### 4.9 Modul L - Kontextlernen
 **Aufgabe**
 - lernen, welche Konfigurationen zu welchen Feldmustern und Regulationsbedarfen führen
 
-**Lernobjekte**
-- Clusterübergänge
-- Kontext -> Cluster
-- Kontext -> Regulationserfolg
-- Kontext -> Replay-Risiko
-
-**Minimalstart**
-- übergangsmatrizen
-- cluster conditionals
-- Erfolgszähler für Regler
-
-**später**
-- lernende Verbindungen in Nengo
-- plastische Gewichte für Kontextkopplung
-
----
-
 ### 4.10 Modul F - Reflexion
 **Aufgabe**
-- aktüllen Zustand mit Vorzustand, Verlauf und bekannten Mustern vergleichen
+- aktuellen Zustand mit Vorzustand, Verlauf und bekannten Mustern vergleichen
 
 **Zustand**
 - `rfl(t)`
-
-**Funktion**
-`rfl(t) = h(x(t), dx/dt, c(t), q(t-1), match(C_t))`
-
-**Leistung**
-- Schleifen erkennen
-- Drift erkennen
-- Rückkehr erkennen
-- "dieses Muster kenne ich" abbilden
-
----
 
 ### 4.11 Modul Q - Innere Wahrnehmung / Self-State
 **Aufgabe**
@@ -300,16 +202,12 @@ Wichtig:
 **Minimalvektor**
 `q(t) = [x, |x|, dx/dt, Var_x, cluster_stability, center_distance]`
 
-**optionale lesbare Labels**
+**Optionale lesbare Labels**
 - stable
 - active
 - excited
 - stressed
-
-Wichtig:
-Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
-
----
+- diffuse
 
 ### 4.12 Modul META - Meta-Regulation
 **Aufgabe**
@@ -319,61 +217,17 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 **Zustand**
 - `m(t)`
 
-**Technisch besonders MCM-nahe Metaregulatoren**
-- Rückführungsstärke
-- Integrationsfähigkeit
-- Varianzregulation
-- Schutzweitenregulation
-- Selbstreflexion
-- Distanzregulation
-
-**Arbeitsbegriffe mit guter MCM-Passung**
-- Belastungstoleranz
-- Frustrationstoleranz
-- Impulskontrolle
-- Vertrauen
-- Mut
-- Geduld
-- Standhaftigkeit
-- Strukturbindung
-
-**Funktion**
-`m(t) = z(q(t), rfl(t), c(t), history)`
-
-**Ausgang**
-- Meta-Parameter für Regulation
-- Schwellen
-- Schutzweite
-- Varianzband
-- Offenhaltungsgrad
-
----
-
 ### 4.13 Modul REG - Selbstregulierung
 **Aufgabe**
 - Feld- und Replay-Dynamik adaptiv modulieren
 
-**Reglerzustand**
-- `g(t)`
-
-**Eingang**
-- Meta-Regulationsvektor `m(t)`
-
-**Regelbare Groessen**
+**Regelbare Größen**
 - Rückführungsstärke `k_reg(t)`
 - Replay-Gain
 - Input-Gain
 - Noise-Level
 - Schutzschwellen
 - Felddämpfung / Offenhaltung
-
-**Beispiele**
-- überauslenkung -> `k_reg` erhoehen
-- Erstarrung -> Input-Gain leicht anheben
-- Gründel-Schleife -> Replay-Gain senken
-- geordnete Exploration -> Rückführung etwas lockern
-
----
 
 ### 4.14 Modul Y - Datenausgang
 **Aufgabe**
@@ -393,22 +247,19 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - Meta-Regulationszustand `m(t)`
 - Reglerzustand `g(t)`
 
-**Wichtig**
-- Datenausgang ist zunächst Beobachtung, nicht Verhalten.
-
 ## 5. Signalfluss
 
-`u(t) -> n(t) -> x(t)`
-`n(t) -> rho(x,t)`
-`x(t), rho(x,t) -> C_t`
-`C_t -> Mem`
-`Mem, c(t) -> r_mem(t)`
-`x(t), rho(x,t), C_t, u(t) -> c(t+1)`
-`x(t), c(t), C_t -> rfl(t)`
-`x(t), rho(x,t), rfl(t) -> q(t)`
-`q(t), c(t), rfl(t), history -> m(t)`
-`m(t), q(t), c(t), rfl(t) -> g(t)`
-`g(t) -> k_reg(t), replay_gain, input_gain, noise_gain, protection_width`
+`u(t) -> n(t) -> x(t)`  
+`n(t) -> rho(x,t)`  
+`x(t), rho(x,t) -> C_t`  
+`C_t -> Mem`  
+`Mem, c(t) -> r_mem(t)`  
+`x(t), rho(x,t), C_t, u(t) -> c(t+1)`  
+`x(t), c(t), C_t -> rfl(t)`  
+`x(t), rho(x,t), rfl(t) -> q(t)`  
+`q(t), c(t), rfl(t), history -> m(t)`  
+`m(t), q(t), c(t), rfl(t) -> g(t)`  
+`g(t) -> k_reg(t), replay_gain, input_gain, noise_gain, protection_width`  
 `x(t), rho(x,t), c(t), q(t), rfl(t), m(t), g(t) -> y(t)`
 
 ## 6. Umsetzungsphasen
@@ -421,15 +272,9 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - einfache Rückführung
 - Datenausgang
 
-**Lieferobjekte**
-- Nengo-Modell mit Input-Node, Ensemble, rekurrenter Rückführung
-- Probe für Spikes, Rates, `x(t)`
-
 **Abnahmekriterium**
 - Reize verschieben `x(t)`
 - ohne Reiz kehrt `x(t)` in Richtung `0` zurück
-
----
 
 ### Phase B - Feldbeobachtung
 **Ziel**
@@ -437,10 +282,8 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - Mittelwert / Varianz / Peaks ableiten
 
 **Abnahmekriterium**
-- mehr als ein Aktivitätszentrum im Feld erkennbar
+- Feldunruhe und Aktivitätszentren sind messbar
 - Varianz steigt bei Instabilität sichtbar an
-
----
 
 ### Phase C - Clustering und Gedächtnis
 **Ziel**
@@ -448,29 +291,23 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - Replay vorbereiten
 
 **Abnahmekriterium**
-- stabile Cluster über mehrere Runs reproduzierbar
+- stabile Cluster werden reproduzierbar erkannt
 - Replay kann bekannte Muster reaktivieren
-
----
 
 ### Phase D - Kontextbildung und Kontextlernen
 **Ziel**
 - internen Kontextvektor erzeugen
-- übergänge und Regelungsbedarf lernen
+- Übergänge und Regelungsbedarf lernen
 
 **Abnahmekriterium**
 - gleicher Stimulus führt bei verschiedenem Kontext zu verschiedenen Feldverläufen
-
----
 
 ### Phase E - Reflexion und Self-State
 **Ziel**
 - System kann eigenen Zustand als Meta-Zustand ausdrücken
 
 **Abnahmekriterium**
-- Schleifen, Drift, Rückkehr, Instabilität werden intern kenntlich
-
----
+- Schleifen, Drift, Rückkehr und Instabilität werden intern kenntlich
 
 ### Phase F - Meta-Regulation und Selbstregulierung
 **Ziel**
@@ -495,45 +332,65 @@ Labels sind nur lesbar, der eigentliche Zustand bleibt kontinuierlich.
 - pandas für Auswertung
 - matplotlib für Feld-/Aktivitätsplots
 
-### Empfohlene Repo-Bausteine
+### Aktuelle Projektstruktur
+
 ```text
-src/
-  core/
-    perception.py
-    neural_core.py
-    mcm_state.py
-    field_density.py
-    clustering.py
-    memory.py
-    replay.py
-    context.py
-    reflection.py
-    self_state.py
-    meta_regulation.py
-    regulation.py
-    output.py
-
-  experiments/
-    exp_phase_a.py
-    exp_phase_b.py
-    exp_phase_c.py
-
-  viz/
-    plot_spikes.py
-    plot_field.py
-    plot_clusters.py
-
-tests/
-  test_mcm_state.py
-  test_regulation.py
-  test_context.py
-
-docs/
-  README.md
-  UMSETZUNGSPLAN.md
+/mnt/data/
+│── main.py
+│── start.py
+│── README.md
+│── UMSETZUNGSPLAN.md
+├── src/
+│   ├── __init__.py
+│   ├── debug_reader.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── clustering.py
+│   │   ├── context.py
+│   │   ├── field_density.py
+│   │   ├── mcm_state.py
+│   │   ├── memory.py
+│   │   ├── meta_regulation.py
+│   │   ├── neural_core.py
+│   │   ├── output.py
+│   │   ├── perception.py
+│   │   ├── reflection.py
+│   │   ├── regulation.py
+│   │   ├── replay.py
+│   │   └── self_state.py
+│   ├── experiments/
+│   │   ├── __init__.py
+│   │   ├── exp_phase_a.py
+│   │   ├── exp_phase_b.py
+│   │   ├── exp_phase_c.py
+│   │   ├── exp_phase_d.py
+│   │   ├── exp_phase_e.py
+│   │   └── exp_phase_f.py
+│   └── viz/
+│       ├── __init__.py
+│       ├── plot_field.py
+│       ├── plot_clusters.py
+│       └── plot_spikes.py
+└── tests/
+    ├── __init__.py
+    ├── conftest.py
+    ├── test_clustering.py
+    ├── test_context.py
+    ├── test_experiments_pipeline.py
+    ├── test_field_density.py
+    ├── test_mcm_state.py
+    ├── test_memory.py
+    ├── test_meta_regulation.py
+    ├── test_neural_core.py
+    ├── test_output.py
+    ├── test_perception.py
+    ├── test_reflection.py
+    ├── test_regulation.py
+    ├── test_replay.py
+    └── test_self_state.py
 ```
 
-## 8. Messgroessen und Evaluation
+## 8. Messgrößen und Evaluation
 
 ### Kernmetriken
 - Rückkehrzeit zum Zentrum
@@ -544,21 +401,21 @@ docs/
 - Schleifenlänge
 - Regulationswirksamkeit
 - Metaregulationskonsistenz
-- Kontextsensitivität
+- Kontextsitivität
 - Selbstzustandskonsistenz
 
 ### Beispiel-Fragen
 - Wird Wahrnehmung als innere Lage gehalten?
 - Bleiben Wiederkehrmuster als Cluster erhalten?
-- Kann das System ohne neün Stimulus intern weiterarbeiten?
-- ändert Regulation die Dynamik messbar?
+- Kann das System ohne neuen Stimulus intern weiterarbeiten?
+- Ändert Regulation die Dynamik messbar?
 - Liefert der Datenausgang einen sinnvollen Zustandsreport?
 
 ## 9. Risiken und offene Punkte
 
 ### Technische Risiken
 - zu schwache Kopplung: Feld bleibt trivial
-- zu starke Kopplung: Feld kippt in Daürauslenkung
+- zu starke Kopplung: Feld kippt in Dauerauslenkung
 - Replay destabilisiert Grunddynamik
 - Clustering wird zu verrauscht
 - Kontext explodiert dimensional
@@ -566,7 +423,7 @@ docs/
 ### Konzeptionelle Risiken
 - MCM ist hypothetisch und nicht empirisch validiert
 - die psychologischen Zonen dürfen nicht mit echter Neuroanatomie verwechselt werden
-- "Reflexion" bleibt hier technische Meta-Verarbeitung, kein Nachweis von Bewusstsein
+- Reflexion bleibt hier technische Meta-Verarbeitung, kein Nachweis von Bewusstsein
 
 ## 10. Harte Entscheidungsregeln für die Umsetzung
 
