@@ -45,7 +45,6 @@ def test_update_mcm_state_returns_toward_center_without_input() -> None:
         noise=0.0,
         dt=0.1,
     )
-
     assert x_curr < x_prev
     assert x_curr > 0.0
 
