@@ -49,6 +49,7 @@ def test_build_cluster_features_computes_window_statistics() -> None:
 # Cluster-Fit
 # --------------------------------------------------
 def test_fit_clusters_merges_nearby_feature_vectors() -> None:
+
     cluster_bank = fit_clusters(
         feature_window=(
             {
@@ -80,6 +81,7 @@ def test_fit_clusters_merges_nearby_feature_vectors() -> None:
 # Pruning
 # --------------------------------------------------
 def test_prune_weak_clusters_removes_entries_below_thresholds() -> None:
+
     pruned_clusters = prune_weak_clusters(
         cluster_bank=(
             {

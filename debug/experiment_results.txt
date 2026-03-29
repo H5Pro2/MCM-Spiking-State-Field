@@ -1,0 +1,124 @@
+{
+  "phase": "a",
+  "run": {
+    "dt": 0.1,
+    "regulation_gain": 0.4,
+    "steps": [
+      {
+        "mcm_state": 0.0,
+        "neural_activity": 0.0,
+        "spike": 0.0,
+        "labels": [
+          "centered",
+          "low_activity"
+        ],
+        "step": 0,
+        "velocity": 0.0,
+        "raw_input": {
+          "valence": 0.0,
+          "novelty": 0.0,
+          "relevance": 0.0,
+          "uncertainty": 0.0,
+          "social_salience": 0.0
+        }
+      },
+      {
+        "mcm_state": 0.09562374581277391,
+        "neural_activity": 0.9562374581277391,
+        "spike": 1.0,
+        "labels": [
+          "centered",
+          "high_activity"
+        ],
+        "step": 1,
+        "velocity": 0.9562374581277391,
+        "raw_input": {
+          "valence": 0.8,
+          "novelty": 0.4,
+          "relevance": 0.6,
+          "uncertainty": 0.1,
+          "social_salience": 0.0
+        }
+      },
+      {
+        "mcm_state": 0.18906299241770594,
+        "neural_activity": 0.9726419643744297,
+        "spike": 1.0,
+        "labels": [
+          "centered",
+          "high_activity"
+        ],
+        "step": 2,
+        "velocity": 0.9343924660493202,
+        "raw_input": {
+          "valence": 0.8,
+          "novelty": 0.4,
+          "relevance": 0.6,
+          "uncertainty": 0.1,
+          "social_salience": 0.0
+        }
+      },
+      {
+        "mcm_state": 0.20534834624278034,
+        "neural_activity": 0.23847873521782642,
+        "spike": 0.0,
+        "labels": [
+          "centered",
+          "low_activity"
+        ],
+        "step": 3,
+        "velocity": 0.162853538250744,
+        "raw_input": {
+          "valence": 0.0,
+          "novelty": 0.0,
+          "relevance": 0.0,
+          "uncertainty": 0.0,
+          "social_salience": 0.0
+        }
+      },
+      {
+        "mcm_state": 0.20308932685045333,
+        "neural_activity": 0.059549144573842146,
+        "spike": 0.0,
+        "labels": [
+          "centered",
+          "low_activity"
+        ],
+        "step": 4,
+        "velocity": -0.022590193923270052,
+        "raw_input": {
+          "valence": 0.0,
+          "novelty": 0.0,
+          "relevance": 0.0,
+          "uncertainty": 0.0,
+          "social_salience": 0.0
+        }
+      },
+      {
+        "mcm_state": 0.19645437241758354,
+        "neural_activity": 0.01488618641148328,
+        "spike": 0.0,
+        "labels": [
+          "centered",
+          "low_activity"
+        ],
+        "step": 5,
+        "velocity": -0.06634954432869794,
+        "raw_input": {
+          "valence": 0.0,
+          "novelty": 0.0,
+          "relevance": 0.0,
+          "uncertainty": 0.0,
+          "social_salience": 0.0
+        }
+      }
+    ]
+  },
+  "evaluation": {
+    "x_shift_detected": true,
+    "returns_toward_center": true,
+    "max_abs_x": 0.20534834624278034,
+    "final_x": 0.19645437241758354,
+    "num_steps": 6
+  }
+}

@@ -26,24 +26,27 @@ Empfohlene Einordnung in die Gesamtstruktur
 │   ├── __init__.py
 │   ├── core/
 │   │   ├── __init__.py
-│   │   ├── perception.py
-│   │   ├── neural_core.py
-│   │   ├── mcm_state.py
-│   │   ├── field_density.py
 │   │   ├── clustering.py
-│   │   ├── memory.py
-│   │   ├── replay.py
 │   │   ├── context.py
-│   │   ├── reflection.py
-│   │   ├── self_state.py
+│   │   ├── field_density.py
+│   │   ├── mcm_state.py
+│   │   ├── memory.py
 │   │   ├── meta_regulation.py
+│   │   ├── neural_core.py
+│   │   ├── output.py
+│   │   ├── perception.py
+│   │   ├── reflection.py
 │   │   ├── regulation.py
-│   │   └── output.py
+│   │   ├── replay.py
+│   │   └── self_state.py
 │   ├── experiments/
 │   │   ├── __init__.py
 │   │   ├── exp_phase_a.py
 │   │   ├── exp_phase_b.py
-│   │   └── exp_phase_c.py
+│   │   ├── exp_phase_c.py
+│   │   ├── exp_phase_d.py
+│   │   ├── exp_phase_e.py
+│   │   └── exp_phase_f.py
 │   └── viz/
 │       ├── __init__.py
 │       ├── plot_field.py
@@ -51,9 +54,13 @@ Empfohlene Einordnung in die Gesamtstruktur
 │       └── plot_spikes.py
 └── tests/
     ├── __init__.py
-    ├── test_mcm_state.py
+    ├── conftest.py
+    ├── test_clustering.py
+    ├── test_context.py
+    ├── test_experiments_pipeline.py
     ├── test_field_density.py
-    └── test_clustering.py
+    ├── test_mcm_state.py
+    └── test_regulation.py
 
 --------------------------------------------------
 Funktionsrolle

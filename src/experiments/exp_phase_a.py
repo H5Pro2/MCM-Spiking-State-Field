@@ -4,12 +4,12 @@
 
 from __future__ import annotations
 
-from core.mcm_state import (
+from src.core.mcm_state import (
     compute_state_velocity,
     initialize_mcm_state,
     update_mcm_state,
 )
-from core.neural_core import (
+from src.core.neural_core import (
     build_neural_core,
     decode_neural_state,
     step_neural_core,
