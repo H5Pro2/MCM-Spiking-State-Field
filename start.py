@@ -37,6 +37,9 @@ TEST_TARGETS: dict[str, list[str]] = {
 # --------------------------------------------------
 # CLI-Parser
 # --------------------------------------------------
+
+d_mode="tests" # "phase" "tests"
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
@@ -46,7 +49,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--mode",
         choices=("tests", "phase"),
-        default="tests",
+        default=d_mode,
         help="tests = pytest starten, phase = Experimentphase laufen lassen",
     )
     parser.add_argument(

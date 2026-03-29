@@ -22,8 +22,13 @@ Empfohlene Einordnung in die Gesamtstruktur
 --------------------------------------------------
 
 /mnt/data/
+│── main.py
+│── start.py
+│── Wichtig - Strukturaufbau.txt
+│── README.md
 ├── src/
 │   ├── __init__.py
+│   │── debug_reader.py
 │   ├── core/
 │   │   ├── __init__.py
 │   │   ├── clustering.py
@@ -54,13 +59,21 @@ Empfohlene Einordnung in die Gesamtstruktur
 │       └── plot_spikes.py
 └── tests/
     ├── __init__.py
-    ├── conftest.py
+    ├── conftest.py  
     ├── test_clustering.py
     ├── test_context.py
     ├── test_experiments_pipeline.py
     ├── test_field_density.py
     ├── test_mcm_state.py
-    └── test_regulation.py
+    ├── test_memory.py
+    ├── test_meta_regulation.py
+    ├── test_neural_core.py
+    ├── test_output.py
+    ├── test_perception.py
+    ├── test_reflection.py
+    ├── test_regulation.py
+    ├── test_replay.py
+    └── test_self_state.py
 
 --------------------------------------------------
 Funktionsrolle
@@ -84,3 +97,4 @@ hoch
 Grund:
 Dein Block S liefert eine sauber begründete zusätzliche Modellebene
 diese Ebene fehlt im bisherigen Code-Stand noch als eigene Strukturklasse.
+
