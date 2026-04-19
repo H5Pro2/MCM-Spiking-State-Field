@@ -170,6 +170,34 @@ mcm-spaun-state-field/
 
 Es ist ein **technischer Entwurf für eine hypothetische KI-Architektur**.
 
+```
+Im Modell sind die spikenden Neuronen nicht der eigentliche MCM-Feldkern.
+Sie sind der neuronale Trägerprozess, über den Aktivität, Verteilung, Rekurrenz und Rückkopplung entstehen.
+
+Das MCM-Feld selbst ist im Modell die übergeordnete innere Zustandslage dieser Aktivität.
+Es bezeichnet nicht die materielle Einzeleinheit, sondern die kontinuierliche Lageform, in der Information im System gehalten, verschoben, verdichtet, wiederaufgenommen und reguliert wird.
+
+--------------------------------------------------
+Interpretation
+--------------------------------------------------
+Saubere Formulierung passend zum Modell:
+
+Das MCM-Feld ist keine dingliche Struktur und keine einzelne neuronale Aktivität, sondern der kontinuierliche innere Zustandsraum, in dem die aktuell organisierte Informationslage des Systems vorliegt.
+
+Die spikenden Neuronen realisieren die Dynamik dieses Zustandsraums, aber sie sind nicht mit dem Feld selbst identisch.
+
+Das Feld beschreibt daher nicht primär, dass Neuronen feuern, sondern in welcher inneren Lage sich die durch neuronale Aktivität getragene Information befindet.
+
+Oder noch kompakter:
+
+Spikende Neuronen sind der dynamische Trägerprozess.
+Das MCM-Feld ist die daraus hervorgehende innere Informations- und Zustandslage.
+
+Empfohlene Endfassung für das Modell:
+
+Im MCM-Spaun-Modell sind spikende Neuronen die operative Realisierung der Aktivitätsdynamik, während das MCM-Feld die kontinuierliche innere Zustandslage dieser Aktivität beschreibt. Das Feld ist somit nicht als materielles Objekt zu verstehen, sondern als formaler Raum der Informationslage, Spannungsverteilung und inneren Orientierung des Systems. Neuronale Spikes tragen und formen diese Lage, sind jedoch nicht mit ihr identisch.
+
+```
 ## Referenzen
 
 ### Offizielle / etablierte Quellen
