@@ -176,9 +176,7 @@ Sie sind der neuronale Trägerprozess, über den Aktivität, Verteilung, Rekurre
 
 Das MCM-Feld selbst ist im Modell die übergeordnete innere Zustandslage dieser Aktivität.
 Es bezeichnet nicht die materielle Einzeleinheit, sondern die kontinuierliche Lageform, in der Information im System gehalten, verschoben, verdichtet, wiederaufgenommen und reguliert wird.
-
---------------------------------------------------
-Interpretation
+```
 --------------------------------------------------
 Saubere Formulierung passend zum Modell:
 
@@ -197,7 +195,7 @@ Empfohlene Endfassung für das Modell:
 
 Im MCM-Spaun-Modell sind spikende Neuronen die operative Realisierung der Aktivitätsdynamik, während das MCM-Feld die kontinuierliche innere Zustandslage dieser Aktivität beschreibt. Das Feld ist somit nicht als materielles Objekt zu verstehen, sondern als formaler Raum der Informationslage, Spannungsverteilung und inneren Orientierung des Systems. Neuronale Spikes tragen und formen diese Lage, sind jedoch nicht mit ihr identisch.
 
-```
+
 ## Referenzen
 
 ### Offizielle / etablierte Quellen
