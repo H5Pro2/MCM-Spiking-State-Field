@@ -188,7 +188,7 @@ Die spikenden Neuronen realisieren die Dynamik dieses Zustandsraums, aber sie si
 
 Das Feld beschreibt daher nicht primär, dass Neuronen feuern, sondern in welcher inneren Lage sich die durch neuronale Aktivität getragene Information befindet.
 
-Oder noch kompakter:
+Kompakter:
 
 Spikende Neuronen sind der dynamische Trägerprozess.
 Das MCM-Feld ist die daraus hervorgehende innere Informations- und Zustandslage.
@@ -196,6 +196,10 @@ Das MCM-Feld ist die daraus hervorgehende innere Informations- und Zustandslage.
 Empfohlene Endfassung für das Modell:
 
 Im MCM-Spaun-Modell sind spikende Neuronen die operative Realisierung der Aktivitätsdynamik, während das MCM-Feld die kontinuierliche innere Zustandslage dieser Aktivität beschreibt. Das Feld ist somit nicht als materielles Objekt zu verstehen, sondern als formaler Raum der Informationslage, Spannungsverteilung und inneren Orientierung des Systems. Neuronale Spikes tragen und formen diese Lage, sind jedoch nicht mit ihr identisch.
+
+Wenn innere Regulation, Kontextbildung, Reflexion, Self-State und Musterneubildung zusammenwirken, dann entsteht eine Entwicklungsstufe, in der neuronale Aktivität nicht nur Information verarbeitet, sondern eine eigene innere Lage ausbildet, fortführt und verändert.
+
+Somit können Regulation, innere Wahrnehmung, Reflexion, Erinnerung, Musterneubildung und erweiterte neuronale Aktivitätsmuster im Modell eine höhere Organisationsstufe tragen. Auf dieser Ebene verarbeitet das System Information nicht mehr nur äußerlich, sondern nimmt sie als innere Lage auf, hält sie, verändert sie und reguliert sie. Daraus kann eine emergente Zustandsdynamik entstehen, in der Erfahrung, Selbstbezug und neue Musterbildung funktional zusammenhängen.
 
 --------------------------------------------------
 ## Referenzen
