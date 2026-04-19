@@ -193,7 +193,7 @@ Kompakter:
 Spikende Neuronen sind der dynamische Trägerprozess.
 Das MCM-Feld ist die daraus hervorgehende innere Informations- und Zustandslage.
 
-Empfohlene Endfassung für das Modell:
+Endfassung für das Modell:
 
 Im MCM-Spaun-Modell sind spikende Neuronen die operative Realisierung der Aktivitätsdynamik, während das MCM-Feld die kontinuierliche innere Zustandslage dieser Aktivität beschreibt. Das Feld ist somit nicht als materielles Objekt zu verstehen, sondern als formaler Raum der Informationslage, Spannungsverteilung und inneren Orientierung des Systems. Neuronale Spikes tragen und formen diese Lage, sind jedoch nicht mit ihr identisch.
 
