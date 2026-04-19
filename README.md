@@ -170,13 +170,15 @@ mcm-spaun-state-field/
 
 Es ist ein **technischer Entwurf für eine hypothetische KI-Architektur**.
 
-```text
+
+### die MCM + spikenden Neuronen ?
+
 Im Modell sind die spikenden Neuronen nicht der eigentliche MCM-Feldkern.
 Sie sind der neuronale Trägerprozess, über den Aktivität, Verteilung, Rekurrenz und Rückkopplung entstehen.
 
 Das MCM-Feld selbst ist im Modell die übergeordnete innere Zustandslage dieser Aktivität.
 Es bezeichnet nicht die materielle Einzeleinheit, sondern die kontinuierliche Lageform, in der Information im System gehalten, verschoben, verdichtet, wiederaufgenommen und reguliert wird.
-```
+
 --------------------------------------------------
 Saubere Formulierung passend zum Modell:
 
