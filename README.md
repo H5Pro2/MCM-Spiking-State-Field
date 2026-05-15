@@ -1,5 +1,5 @@
 # MCM-Spiking-State-Field
-![alt text](files/MCM-Spiking-State-Field.png)
+![alt text](files/_MCM-Spiking-State-Field.png)
 ## Kurzbeschreibung
 
 Dieses Repository beschreibt einen architektonischen Entwurf für ein **spikendes inneres Zustandsmodell**, das die **neuronale Aktivitätsverarbeitung** aus der Spaun-/Nengo-Richtung mit dem **kontinuierlichen Zustandsraum** der Mental Core Matrix (MCM) verbindet.
